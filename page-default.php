@@ -1,4 +1,4 @@
-<?
+<?php
 	if (@$_POST['getnewaddress'])
 		no_displayed_error_result($getnewaddress, multichain('getnewaddress'));
 ?>
@@ -7,7 +7,7 @@
 
 				<div class="col-sm-6">
 					<h3>My Node</h3>
-<?
+<?php
 	$getinfo=multichain_getinfo();
 
 	if (is_array($getinfo)) {
@@ -15,65 +15,65 @@
 					<table class="table table-bordered table-striped">
 						<tr>
 							<th>Name</th>
-							<td><?=html($getinfo['chainname'])?></td>
+							<td><?php=html($getinfo['chainname'])?></td>
 						</tr>
 						<tr>
 							<th>Version</th>
-							<td><?=html($getinfo['version'])?></td>
+							<td><?php=html($getinfo['version'])?></td>
 						</tr>
 						<tr>
 							<th>Protocol</th>
-							<td><?=html($getinfo['protocolversion'])?></td>
+							<td><?php=html($getinfo['protocolversion'])?></td>
 						</tr>
 						<tr>
 							<th>Node address</th>
-							<td><?=html($getinfo['nodeaddress'])?></td>
+							<td><?php=html($getinfo['nodeaddress'])?></td>
 						</tr>
 						<tr>
 							<th>Blocks</th>
-							<td><?=html($getinfo['blocks'])?></td>
+							<td><?php=html($getinfo['blocks'])?></td>
 						</tr>
 						<tr>
 							<th>Peers</th>
-							<td><?=html($getinfo['connections'])?></td>
+							<td><?php=html($getinfo['connections'])?></td>
 						</tr>
 					</table>
-<?	
+<?php
 	}
 ?>
 
 					<h3>Connected Nodes</h3>
-<?
+<?php
 	if (no_displayed_error_result($peerinfo, multichain('getpeerinfo'))) {
 ?>
 					<table class="table table-bordered table-striped table-break-words">
-<?
+<?php
 		foreach ($peerinfo as $peer) {
 ?>
 						<tr>
 							<th>Node IP address</th>
-							<td><?=html(strtok($peer['addr'], ':'))?></td>
+							<td><?php=html(strtok($peer['addr'], ':'))?></td>
 						</tr>
 						<tr>
 							<th>Handshake address</th>
-							<td class="td-break-words small"><?=html($peer['handshake'])?></td>
+							<td class="td-break-words small"><?php=html($peer['handshake'])?></td>
 						</tr>
 						<tr>
 							<th>Latency</th>
-							<td><?=html(number_format($peer['pingtime'], 3))?> sec</td>
+							<td><?php=html(number_format($peer['pingtime'], 3))?> sec</td>
 						</tr>
-<?
+<?php
 		}
 ?>
 					</table>
-<?	
+<?php
 	}
 ?>
 				</div>
 				<div class="col-sm-6">
 					<h3>My Addresses</h3>
 			
-<?
+<?php
 	if (no_displayed_error_result($getaddresses, multichain('getaddresses', true))) {
 		$addressmine=array();
 		
@@ -104,13 +104,13 @@
 			if ($ismine && !$cansetlabel)
 				$permissions.=' (cannot set label)';
 ?>
-						<table class="table table-bordered table-condensed table-break-words <?=($address==@$getnewaddress) ? 'bg-success' : 'table-striped'?>">
-<?
+						<table class="table table-bordered table-condensed table-break-words <?php=($address==@$getnewaddress) ? 'bg-success' : 'table-striped'?>">
+<?php
 			if (isset($label) || $cansetlabel) {
 ?>
 							<tr>
 								<th style="width:30%;">Label</th>
-								<td><?=html(@$label)?><?
+								<td><?php=html(@$label)?><?
 								
 				if ($cansetlabel)
 					echo (isset($label) ? ' &ndash; ' : '').
@@ -120,38 +120,38 @@
 				
 								?></td>
 							</tr>
-<?
+<?php
 			}
 ?>
 							<tr>
 								<th style="width:30%;">Address</th>
-								<td class="td-break-words small"><?=html($address)?><?=$ismine ? '' : ' (watch-only)'?></td>
+								<td class="td-break-words small"><?php=html($address)?><?php=$ismine ? '' : ' (watch-only)'?></td>
 							</tr>
 							<tr>
 								<th>Permissions</th>
-								<td><?=html($permissions)?><?
+								<td><?php=html($permissions)?><?
 
 					echo ' &ndash; <a href="'.chain_page_url_html($chain, 'permissions', array('address' => $address)).'">change</a>';
 
 							?></td></tr>
-<?
+<?php
 			if (isset($getmultibalances[$address])) {
 				foreach ($getmultibalances[$address] as $addressbalance) {
 ?>
 							<tr>
-								<th><?=html($addressbalance['name'])?></th>
-								<td><?=html($addressbalance['qty'])?></td>
+								<th><?php=html($addressbalance['name'])?></th>
+								<td><?php=html($addressbalance['qty'])?></td>
 							</tr>
-<?
+<?php
 				}
 			}
 ?>
 						</table>
-<?
+<?php
 		}
 	}
 ?>
-					<form class="form-horizontal" method="post" action="<?=chain_page_url_html($chain)?>">
+					<form class="form-horizontal" method="post" action="<?php=chain_page_url_html($chain)?>">
 						<div class="form-group">
 							<div class="col-xs-12">
 								<input class="btn btn-default" name="getnewaddress" type="submit" value="Get new address">

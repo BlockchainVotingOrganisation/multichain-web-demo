@@ -1,4 +1,4 @@
-<?
+<?php
 	if (@$_POST['createstream']) {
 		$success=no_displayed_error_result($createtxid, multichain('createfrom',
 			$_POST['from'], 'stream', $_POST['name'], true));
@@ -29,24 +29,24 @@
 				<div class="col-sm-4">
 					<h3>Streams</h3>
 			
-<?
+<?php
 	foreach ($liststreams as $stream) {
 ?>
-						<table class="table table-bordered table-condensed table-break-words <?=($success && ($stream['name']==@$_POST['name'])) ? 'bg-success' : 'table-striped'?>">
+						<table class="table table-bordered table-condensed table-break-words <?php=($success && ($stream['name']==@$_POST['name'])) ? 'bg-success' : 'table-striped'?>">
 							<tr>
 								<th style="width:30%;">Name</th>
-								<td><?=html($stream['name'])?></td>
+								<td><?php=html($stream['name'])?></td>
 							</tr>
 							<tr>
 								<th>Opened by</td>
-								<td class="td-break-words small"><?=format_address_html($stream['creators'][0], false, $labels)?></td>
+								<td class="td-break-words small"><?php=format_address_html($stream['creators'][0], false, $labels)?></td>
 							</tr>
 							<tr>
 								<th>Items</th>
-								<td><?
+								<td><?php
 									if ($stream['subscribed']) { 
 
-								?><?=html($stream['items'])?><?
+								?><?php=html($stream['items'])?><?php
 
 									} else {
 
@@ -56,7 +56,7 @@
 								?></td>
 							</tr>
 						</table>
-<?
+<?php
 	}
 ?>
 				</div>
@@ -64,16 +64,16 @@
 				<div class="col-sm-8">
 					<h3>Create Stream</h3>
 					
-					<form class="form-horizontal" method="post" action="./?chain=<?=html($_GET['chain'])?>&page=<?=html($_GET['page'])?>">
+					<form class="form-horizontal" method="post" action="./?chain=<?php=html($_GET['chain'])?>&page=<?php=html($_GET['page'])?>">
 						<div class="form-group">
 							<label for="from" class="col-sm-2 control-label">From address:</label>
 							<div class="col-sm-9">
 							<select class="form-control col-sm-6" name="from" id="from">
-<?
+<?php
 	foreach ($createaddresses as $address) {
 ?>
-								<option value="<?=html($address)?>"><?=format_address_html($address, true, $labels)?></option>
-<?
+								<option value="<?php=html($address)?>"><?php=format_address_html($address, true, $labels)?></option>
+<?php
 	}
 ?>						
 							</select>

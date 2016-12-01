@@ -1,4 +1,4 @@
-<?
+<?php
 	define('const_max_retrieve_items', 1000);
 	
 	$labels=multichain_labels();
@@ -27,26 +27,26 @@
 
 			<div class="row">
 
-				<div class="col-sm-4"><form method="post" action="./?chain=<?=html($_GET['chain'])?>&page=<?=html($_GET['page'])?>">
+				<div class="col-sm-4"><form method="post" action="./?chain=<?php=html($_GET['chain'])?>&page=<?php=html($_GET['page'])?>">
 				
-<?
+<?php
 	for ($subscribed=1; $subscribed>=0; $subscribed--) {
 ?>
 
-					<h3><?=$subscribed ? 'Subscribed streams' : 'Other streams'?></h3>
+					<h3><?php=$subscribed ? 'Subscribed streams' : 'Other streams'?></h3>
 			
-<?
+<?php
 		foreach ($liststreams as $stream)
 			if ($stream['subscribed']==$subscribed) {
 ?>
 						<table class="table table-bordered table-condensed table-break-words table-striped">
 							<tr>
 								<th style="width:30%;">Name</th>
-<?
+<?php
 				if ($subscribed) {
 ?>	
-								<td><a href="./?chain=<?=html($_GET['chain'])?>&page=<?=html($_GET['page'])?>&stream=<?=html($stream['createtxid'])?>"><?=html($stream['name'])?></a></td>
-<?
+								<td><a href="./?chain=<?php=html($_GET['chain'])?>&page=<?php=html($_GET['page'])?>&stream=<?php=html($stream['createtxid'])?>"><?php=html($stream['name'])?></a></td>
+<?php
 				} else {
 					$parts=explode('-', $stream['streamref']);
 					if (is_numeric($parts[0]))
@@ -54,37 +54,37 @@
 					else
 						$suffix='';
 ?>	
-								<td><?=html($stream['name'])?> &nbsp; <input class="btn btn-default btn-xs" type="submit" name="subscribe_<?=html($stream['streamref'])?>" value="Subscribe<?=$suffix?>"></td>
-<?
+								<td><?php=html($stream['name'])?> &nbsp; <input class="btn btn-default btn-xs" type="submit" name="subscribe_<?php=html($stream['streamref'])?>" value="Subscribe<?php=$suffix?>"></td>
+<?php
 				}
 ?>
 							</tr>
 							<tr>
 								<th>Created by</th>
-								<td class="td-break-words small"><?=format_address_html($stream['creators'][0], false, $labels)?></td>
+								<td class="td-break-words small"><?php=format_address_html($stream['creators'][0], false, $labels)?></td>
 							</tr>
-<?
+<?php
 				if ($subscribed) {
 ?>
 							<tr>
 								<th>Items</th>
-								<td><?=$stream['items']?></td>
+								<td><?php=$stream['items']?></td>
 							</tr>
 							<tr>
 								<th>Publishers</th>
-								<td><?=$stream['publishers']?></td>
+								<td><?php=$stream['publishers']?></td>
 							</tr>
-<?
+<?php
 				}
 ?>
 						</table>
-<?
+<?php
 		}
 	}
 ?>
 				</form></div>
 				
-<?
+<?php
 	
 	if (isset($viewstream)) {
 		if (isset($_GET['key'])) {
@@ -109,8 +109,8 @@
 ?>
 				
 				<div class="col-sm-8">
-					<h3>Stream: <?=html($viewstream['name'])?> &ndash; <?=count($items)?> of <?=$countitems?> <?=($countitems==1) ? 'item' : 'items'?><?=html($suffix)?></h3>
-<?
+					<h3>Stream: <?php=html($viewstream['name'])?> &ndash; <?php=count($items)?> of <?php=$countitems?> <?php=($countitems==1) ? 'item' : 'items'?><?php=html($suffix)?></h3>
+<?php
 			$oneoutput=false;
 			$items=array_reverse($items); // show most recent first
 			
@@ -125,7 +125,7 @@
 				foreach ($item['publishers'] as $publisher) {
 					$link='./?chain='.$_GET['chain'].'&page='.$_GET['page'].'&stream='.$viewstream['createtxid'].'&publisher='.$publisher;
 					
-							?><?=format_address_html($publisher, false, $labels, $link)?><?
+							?><?php=format_address_html($publisher, false, $labels, $link)?><?php
 							
 				}
 							
@@ -133,11 +133,11 @@
 						</tr>
 						<tr>
 							<th>Key</td>
-							<td><a href="./?chain=<?=html($_GET['chain'])?>&page=<?=html($_GET['page'])?>&stream=<?=html($viewstream['createtxid'])?>&key=<?=html($item['key'])?>"><?=html($item['key'])?></a></td>
+							<td><a href="./?chain=<?php=html($_GET['chain'])?>&page=<?php=html($_GET['page'])?>&stream=<?php=html($viewstream['createtxid'])?>&key=<?php=html($item['key'])?>"><?php=html($item['key'])?></a></td>
 						</tr>
 						<tr>
 							<th>Data</td>
-							<td><?
+							<td><?php
 				
 				if (is_array($item['data'])) { // long data item
 					if (no_displayed_error_result($txoutdata, multichain('gettxoutdata', $item['data']['txid'], $item['data']['vout'], 1024))) // get prefix only for file name
@@ -165,10 +165,10 @@
 						</tr>
 						<tr>
 							<th>Added</td>
-							<td><?=gmdate('Y-m-d H:i:s', isset($item['blocktime']) ? $item['blocktime'] : $item['time'])?> GMT<?=isset($item['blocktime']) ? ' (confirmed)' : ''?></td>
+							<td><?php=gmdate('Y-m-d H:i:s', isset($item['blocktime']) ? $item['blocktime'] : $item['time'])?> GMT<?php=isset($item['blocktime']) ? ' (confirmed)' : ''?></td>
 						</tr>
 					</table>
-<?
+<?php
 				}
 				
 			if (!$oneoutput)
@@ -176,7 +176,7 @@
 ?>				
 				</div>
 				
-<?
+<?php
 		}
 	}
 ?>

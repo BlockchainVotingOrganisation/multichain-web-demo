@@ -26,7 +26,8 @@
 	function json_rpc_send($host, $port, $user, $password, $method, $params=array())
 	{
 		$url='http://'.$host.':'.$port.'/';
-				
+		$agent = 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)';
+
 		$payload=json_encode(array(
 			'id' => time(),
 			'method' => $method,
@@ -40,6 +41,7 @@
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_USERPWD, $user.':'.$password);
+		curl_setopt($ch, CURLOPT_USERAGENT, $agent);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 			'Content-Type: application/json',
 			'Content-Length: '.strlen($payload)
@@ -47,7 +49,7 @@
 		
 		$response=curl_exec($ch);
 		
-	//	echo '<PRE>'; print_r($response); echo '</PRE>';
+		echo '<PRE>'; print_r($response); echo '</PRE>';
 		
 		$result=json_decode($response, true);
 		
