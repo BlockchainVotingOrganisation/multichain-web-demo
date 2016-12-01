@@ -69,14 +69,14 @@
 ?>
 							<tr>
 								<th style="width:25%;">Label</th>
-								<td><?php=html($label)?></td>
+								<td><?php echo html($label)?></td>
 							</tr>
 <?php
 			}
 ?>
 							<tr>
 								<th style="width:20%;">Address</th>
-								<td class="td-break-words small"><?php=html($address)?></td>
+								<td class="td-break-words small"><?php echo html($address)?></td>
 							</tr>
 <?php
 					foreach ($allbalances as $balance) {
@@ -89,8 +89,8 @@
 							$keyusableassets[$balance['name']]=true;
 ?>
 							<tr>
-								<th><?php=html($balance['name'])?></th>
-								<td><?php=html($unlockedqty)?><?php=($lockedqty>0) ? (' ('.$lockedqty.' locked)') : ''?></td>
+								<th><?php echo html($balance['name'])?></th>
+								<td><?php echo html($unlockedqty)?><?php=($lockedqty>0) ? (' ('.$lockedqty.' locked)') : ''?></td>
 							</tr>
 <?php
 					}
@@ -104,7 +104,7 @@
 	
 	if ($haslocked) {
 ?>
-				<form class="form-horizontal" method="post" action="./?chain=<?php=html($_GET['chain'])?>&page=<?php=html($_GET['page'])?>">
+				<form class="form-horizontal" method="post" action="./?chain=<?php echo html($_GET['chain'])?>&page=<?php echo html($_GET['page'])?>">
 					<input class="btn btn-default" type="submit" name="unlockoutputs" value="Unlock all outputs">
 				</form>
 <?php
@@ -115,7 +115,7 @@
 				<div class="col-sm-7">
 					<h3>Send Asset</h3>
 					
-					<form class="form-horizontal" method="post" action="./?chain=<?php=html($_GET['chain'])?>&page=<?php=html($_GET['page'])?>">
+					<form class="form-horizontal" method="post" action="./?chain=<?php echo html($_GET['chain'])?>&page=<?php echo html($_GET['page'])?>">
 						<div class="form-group">
 							<label for="from" class="col-sm-3 control-label">From address:</label>
 							<div class="col-sm-9">
@@ -123,7 +123,7 @@
 <?php
 	foreach ($usableaddresses as $address) {
 ?>
-								<option value="<?php=html($address)?>"><?php=format_address_html($address, true, $labels)?></option>
+								<option value="<?php echo html($address)?>"><?php=format_address_html($address, true, $labels)?></option>
 <?php
 	}
 ?>						
@@ -137,7 +137,7 @@
 <?php
 	foreach ($keyusableassets as $asset => $dummy) {
 ?>
-								<option value="<?php=html($asset)?>"><?php=html($asset)?></option>
+								<option value="<?php echo html($asset)?>"><?php echo html($asset)?></option>
 <?php
 	}
 ?>						
@@ -153,7 +153,7 @@
 		if ($address==$getinfo['burnaddress'])
 			continue;
 ?>
-								<option value="<?php=html($address)?>"><?php=format_address_html($address, @$keymyaddresses[$address], $labels)?></option>
+								<option value="<?php echo html($address)?>"><?php=format_address_html($address, @$keymyaddresses[$address], $labels)?></option>
 <?php
 	}
 ?>						

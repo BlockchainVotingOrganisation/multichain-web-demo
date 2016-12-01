@@ -29,7 +29,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1><a href="./">MultiChain Demo</a><?php if (strlen($name)) { ?> &ndash; <?php=html($name)?><?php } ?></h1>
+			<h1><a href="./">MultiChain Demo</a><?php if (strlen($name)) { ?> &ndash; <?php echo html($name)?><?php } ?></h1>
 <?php
 	if (strlen($chain)) {
 		$name=$config[$chain]['name'];

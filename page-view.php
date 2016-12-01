@@ -27,7 +27,7 @@
 
 			<div class="row">
 
-				<div class="col-sm-4"><form method="post" action="./?chain=<?php=html($_GET['chain'])?>&page=<?php=html($_GET['page'])?>">
+				<div class="col-sm-4"><form method="post" action="./?chain=<?php echo html($_GET['chain'])?>&page=<?php echo html($_GET['page'])?>">
 				
 <?php
 	for ($subscribed=1; $subscribed>=0; $subscribed--) {
@@ -45,7 +45,7 @@
 <?php
 				if ($subscribed) {
 ?>	
-								<td><a href="./?chain=<?php=html($_GET['chain'])?>&page=<?php=html($_GET['page'])?>&stream=<?php=html($stream['createtxid'])?>"><?php=html($stream['name'])?></a></td>
+								<td><a href="./?chain=<?php echo html($_GET['chain'])?>&page=<?php echo html($_GET['page'])?>&stream=<?php echo html($stream['createtxid'])?>"><?php echo html($stream['name'])?></a></td>
 <?php
 				} else {
 					$parts=explode('-', $stream['streamref']);
@@ -54,7 +54,7 @@
 					else
 						$suffix='';
 ?>	
-								<td><?php=html($stream['name'])?> &nbsp; <input class="btn btn-default btn-xs" type="submit" name="subscribe_<?php=html($stream['streamref'])?>" value="Subscribe<?php=$suffix?>"></td>
+								<td><?php echo html($stream['name'])?> &nbsp; <input class="btn btn-default btn-xs" type="submit" name="subscribe_<?php echo html($stream['streamref'])?>" value="Subscribe<?php=$suffix?>"></td>
 <?php
 				}
 ?>
@@ -109,7 +109,7 @@
 ?>
 				
 				<div class="col-sm-8">
-					<h3>Stream: <?php=html($viewstream['name'])?> &ndash; <?php=count($items)?> of <?php=$countitems?> <?php=($countitems==1) ? 'item' : 'items'?><?php=html($suffix)?></h3>
+					<h3>Stream: <?php echo html($viewstream['name'])?> &ndash; <?php=count($items)?> of <?php=$countitems?> <?php=($countitems==1) ? 'item' : 'items'?><?php echo html($suffix)?></h3>
 <?php
 			$oneoutput=false;
 			$items=array_reverse($items); // show most recent first
@@ -133,7 +133,7 @@
 						</tr>
 						<tr>
 							<th>Key</td>
-							<td><a href="./?chain=<?php=html($_GET['chain'])?>&page=<?php=html($_GET['page'])?>&stream=<?php=html($viewstream['createtxid'])?>&key=<?php=html($item['key'])?>"><?php=html($item['key'])?></a></td>
+							<td><a href="./?chain=<?php echo html($_GET['chain'])?>&page=<?php echo html($_GET['page'])?>&stream=<?php echo html($viewstream['createtxid'])?>&key=<?php echo html($item['key'])?>"><?php echo html($item['key'])?></a></td>
 						</tr>
 						<tr>
 							<th>Data</td>

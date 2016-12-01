@@ -35,7 +35,7 @@
 						<table class="table table-bordered table-condensed table-break-words <?php=($success && ($stream['name']==@$_POST['name'])) ? 'bg-success' : 'table-striped'?>">
 							<tr>
 								<th style="width:30%;">Name</th>
-								<td><?php=html($stream['name'])?></td>
+								<td><?php echo html($stream['name'])?></td>
 							</tr>
 							<tr>
 								<th>Opened by</td>
@@ -46,7 +46,7 @@
 								<td><?php
 									if ($stream['subscribed']) { 
 
-								?><?php=html($stream['items'])?><?php
+								?><?php echo html($stream['items'])?><?php
 
 									} else {
 
@@ -64,7 +64,7 @@
 				<div class="col-sm-8">
 					<h3>Create Stream</h3>
 					
-					<form class="form-horizontal" method="post" action="./?chain=<?php=html($_GET['chain'])?>&page=<?php=html($_GET['page'])?>">
+					<form class="form-horizontal" method="post" action="./?chain=<?php echo html($_GET['chain'])?>&page=<?php echo html($_GET['page'])?>">
 						<div class="form-group">
 							<label for="from" class="col-sm-2 control-label">From address:</label>
 							<div class="col-sm-9">
@@ -72,7 +72,7 @@
 <?php
 	foreach ($createaddresses as $address) {
 ?>
-								<option value="<?php=html($address)?>"><?php=format_address_html($address, true, $labels)?></option>
+								<option value="<?php echo html($address)?>"><?php=format_address_html($address, true, $labels)?></option>
 <?php
 	}
 ?>						

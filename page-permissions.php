@@ -86,18 +86,18 @@
 ?>
 							<tr>
 								<th style="width:25%;">Label</th>
-								<td><?php=html($label)?></td>
+								<td><?php echo html($label)?></td>
 							</tr>
 <?php
 			}
 ?>
 							<tr>
 								<th style="width:25%;">Address</th>
-								<td class="td-break-words small"><?php=html($address)?><?php=@$keymyaddresses[$address] ? ' (local)' : ''?></td>
+								<td class="td-break-words small"><?php echo html($address)?><?php=@$keymyaddresses[$address] ? ' (local)' : ''?></td>
 							</tr>
 							<tr>
 								<th>Permissions</th>
-								<td><?php=html($permissions_text)?></td>
+								<td><?php echo html($permissions_text)?></td>
 							</tr>
 						</table>
 <?php
@@ -109,7 +109,7 @@
 				<div class="col-sm-7">
 					<h3>Change Permissions</h3>
 					
-					<form class="form-horizontal" method="post" action="./?chain=<?php=html($_GET['chain'])?>&page=<?php=html($_GET['page'])?>">
+					<form class="form-horizontal" method="post" action="./?chain=<?php echo html($_GET['chain'])?>&page=<?php echo html($_GET['page'])?>">
 						<div class="form-group">
 							<label for="from" class="col-sm-3 control-label">Admin address:</label>
 							<div class="col-sm-9">
@@ -117,7 +117,7 @@
 <?php
 	foreach ($adminaddresses as $address) {
 ?>
-								<option value="<?php=html($address)?>"><?php=format_address_html($address, true, $labels)?></option>
+								<option value="<?php echo html($address)?>"><?php=format_address_html($address, true, $labels)?></option>
 <?php
 	}
 ?>						
@@ -127,7 +127,7 @@
 						<div class="form-group">
 							<label for="to" class="col-sm-3 control-label">For address:</label>
 							<div class="col-sm-9">
-								<input class="form-control" name="to" id="to" placeholder="1..." value="<?php=html($to)?>">
+								<input class="form-control" name="to" id="to" placeholder="1..." value="<?php echo html($to)?>">
 							</div>
 						</div>
 						<div class="form-group">
@@ -151,7 +151,7 @@
 			echo '<br/>';
 ?> 
 								<label class="checkbox-inline">
-									<input type="checkbox" name="<?php=html($type)?>" value="1"> <?php=html($label)?> &nbsp;
+									<input type="checkbox" name="<?php echo html($type)?>" value="1"> <?php echo html($label)?> &nbsp;
 								</label>
 <?php
 	}

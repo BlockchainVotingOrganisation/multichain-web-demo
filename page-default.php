@@ -15,27 +15,27 @@
 					<table class="table table-bordered table-striped">
 						<tr>
 							<th>Name</th>
-							<td><?php=html($getinfo['chainname'])?></td>
+							<td><?php echo html($getinfo['chainname'])?></td>
 						</tr>
 						<tr>
 							<th>Version</th>
-							<td><?php=html($getinfo['version'])?></td>
+							<td><?php echo html($getinfo['version'])?></td>
 						</tr>
 						<tr>
 							<th>Protocol</th>
-							<td><?php=html($getinfo['protocolversion'])?></td>
+							<td><?php echo html($getinfo['protocolversion'])?></td>
 						</tr>
 						<tr>
 							<th>Node address</th>
-							<td><?php=html($getinfo['nodeaddress'])?></td>
+							<td><?php echo html($getinfo['nodeaddress'])?></td>
 						</tr>
 						<tr>
 							<th>Blocks</th>
-							<td><?php=html($getinfo['blocks'])?></td>
+							<td><?php echo html($getinfo['blocks'])?></td>
 						</tr>
 						<tr>
 							<th>Peers</th>
-							<td><?php=html($getinfo['connections'])?></td>
+							<td><?php echo html($getinfo['connections'])?></td>
 						</tr>
 					</table>
 <?php
@@ -52,15 +52,15 @@
 ?>
 						<tr>
 							<th>Node IP address</th>
-							<td><?php=html(strtok($peer['addr'], ':'))?></td>
+							<td><?php echo html(strtok($peer['addr'], ':'))?></td>
 						</tr>
 						<tr>
 							<th>Handshake address</th>
-							<td class="td-break-words small"><?php=html($peer['handshake'])?></td>
+							<td class="td-break-words small"><?php echo html($peer['handshake'])?></td>
 						</tr>
 						<tr>
 							<th>Latency</th>
-							<td><?php=html(number_format($peer['pingtime'], 3))?> sec</td>
+							<td><?php echo html(number_format($peer['pingtime'], 3))?> sec</td>
 						</tr>
 <?php
 		}
@@ -110,7 +110,7 @@
 ?>
 							<tr>
 								<th style="width:30%;">Label</th>
-								<td><?php=html(@$label)?><?
+								<td><?php echo html(@$label)?><?
 								
 				if ($cansetlabel)
 					echo (isset($label) ? ' &ndash; ' : '').
@@ -125,11 +125,11 @@
 ?>
 							<tr>
 								<th style="width:30%;">Address</th>
-								<td class="td-break-words small"><?php=html($address)?><?php=$ismine ? '' : ' (watch-only)'?></td>
+								<td class="td-break-words small"><?php echo html($address)?><?php=$ismine ? '' : ' (watch-only)'?></td>
 							</tr>
 							<tr>
 								<th>Permissions</th>
-								<td><?php=html($permissions)?><?
+								<td><?php echo html($permissions)?><?
 
 					echo ' &ndash; <a href="'.chain_page_url_html($chain, 'permissions', array('address' => $address)).'">change</a>';
 
@@ -139,8 +139,8 @@
 				foreach ($getmultibalances[$address] as $addressbalance) {
 ?>
 							<tr>
-								<th><?php=html($addressbalance['name'])?></th>
-								<td><?php=html($addressbalance['qty'])?></td>
+								<th><?php echo html($addressbalance['name'])?></th>
+								<td><?php echo html($addressbalance['qty'])?></td>
 							</tr>
 <?php
 				}

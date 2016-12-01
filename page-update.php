@@ -99,15 +99,15 @@
 						<table class="table table-bordered table-condensed table-break-words <?php=($success && ($name==@$_POST['name'])) ? 'bg-success' : 'table-striped'?>">
 							<tr>
 								<th style="width:30%;">Name</th>
-								<td><?php=html($name)?> <?php=$asset['open'] ? '' : '(closed)'?></td>
+								<td><?php echo html($name)?> <?php=$asset['open'] ? '' : '(closed)'?></td>
 							</tr>
 							<tr>
 								<th>Quantity</td>
-								<td><?php=html($asset['issueqty'])?></td>
+								<td><?php echo html($asset['issueqty'])?></td>
 							</tr>
 							<tr>
 								<th>Units</td>
-								<td><?php=html($asset['units'])?></td>
+								<td><?php echo html($asset['units'])?></td>
 							</tr>
 							<tr>
 								<th>Issuer</td>
@@ -164,8 +164,8 @@
 					continue;
 ?>
 							<tr>
-								<th><?php=html($key)?></th>
-								<td><?php=html($value)?><?php
+								<th><?php echo html($key)?></th>
+								<td><?php echo html($value)?><?php
 								
 				if (count($detailshistory[$key])>1)
 					echo '<br/><small>(previous values: '.html(implode(', ', array_slice(array_reverse($detailshistory[$key]), 1))).')</small>';
@@ -185,7 +185,7 @@
 				<div class="col-sm-8">
 					<h3>Update Asset</h3>
 					
-					<form class="form-horizontal" method="post" enctype="multipart/form-data" action="./?chain=<?php=html($_GET['chain'])?>&page=<?php=html($_GET['page'])?>">
+					<form class="form-horizontal" method="post" enctype="multipart/form-data" action="./?chain=<?php echo html($_GET['chain'])?>&page=<?php echo html($_GET['page'])?>">
 						<div class="form-group">
 							<label for="issuetxid" class="col-sm-2 control-label">Asset:</label>
 							<div class="col-sm-9">
@@ -196,7 +196,7 @@
 
 		if (($asset['open'] && @$keymyaddresses[$issuer])) {
 ?>
-								<option value="<?php=html($asset['issuetxid'])?>"><?php=html($asset['name'])?></option>
+								<option value="<?php echo html($asset['issuetxid'])?>"><?php echo html($asset['name'])?></option>
 <?php
 		}
 	}
@@ -221,7 +221,7 @@
 		if ($address==$getinfo['burnaddress'])
 			continue;
 ?>
-								<option value="<?php=html($address)?>"><?php=format_address_html($address, @$keymyaddresses[$address], $labels)?></option>
+								<option value="<?php echo html($address)?>"><?php=format_address_html($address, @$keymyaddresses[$address], $labels)?></option>
 <?php
 	}
 ?>						

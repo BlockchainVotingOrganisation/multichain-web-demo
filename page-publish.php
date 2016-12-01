@@ -47,7 +47,7 @@
 				<div class="col-sm-12">
 					<h3>Publish to Stream</h3>
 					
-					<form class="form-horizontal" method="post" enctype="multipart/form-data"  action="./?chain=<?php=html($_GET['chain'])?>&page=<?php=html($_GET['page'])?>">
+					<form class="form-horizontal" method="post" enctype="multipart/form-data"  action="./?chain=<?php echo html($_GET['chain'])?>&page=<?php echo html($_GET['page'])?>">
 						<div class="form-group">
 							<label for="from" class="col-sm-2 control-label">From address:</label>
 							<div class="col-sm-9">
@@ -55,7 +55,7 @@
 <?php
 	foreach ($sendaddresses as $address) {
 ?>
-								<option value="<?php=html($address)?>"><?php=format_address_html($address, true, $labels)?></option>
+								<option value="<?php echo html($address)?>"><?php=format_address_html($address, true, $labels)?></option>
 <?php
 	}
 ?>						
@@ -70,7 +70,7 @@
 	foreach ($liststreams as $stream) 
 		if ($stream['name']!='root') {
 ?>
-								<option value="<?php=html($stream['name'])?>"><?php=html($stream['name'])?></option>
+								<option value="<?php echo html($stream['name'])?>"><?php echo html($stream['name'])?></option>
 <?php
 		}
 ?>						
