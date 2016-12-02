@@ -50,7 +50,7 @@
 
 									} else {
 
-								?>not subscribed<?
+								?>not subscribed<?php
 
 									}
 								?></td>
