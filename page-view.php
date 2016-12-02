@@ -33,7 +33,7 @@
 	for ($subscribed=1; $subscribed>=0; $subscribed--) {
 ?>
 
-					<h3><?php=$subscribed ? 'Subscribed streams' : 'Other streams'?></h3>
+					<h3><?=$subscribed ? 'Subscribed streams' : 'Other streams'?></h3>
 			
 <?php
 		foreach ($liststreams as $stream)
@@ -54,25 +54,25 @@
 					else
 						$suffix='';
 ?>	
-								<td><?php echo html($stream['name'])?> &nbsp; <input class="btn btn-default btn-xs" type="submit" name="subscribe_<?php echo html($stream['streamref'])?>" value="Subscribe<?php=$suffix?>"></td>
+								<td><?php echo html($stream['name'])?> &nbsp; <input class="btn btn-default btn-xs" type="submit" name="subscribe_<?php echo html($stream['streamref'])?>" value="Subscribe<?=$suffix?>"></td>
 <?php
 				}
 ?>
 							</tr>
 							<tr>
 								<th>Created by</th>
-								<td class="td-break-words small"><?php=format_address_html($stream['creators'][0], false, $labels)?></td>
+								<td class="td-break-words small"><?=format_address_html($stream['creators'][0], false, $labels)?></td>
 							</tr>
 <?php
 				if ($subscribed) {
 ?>
 							<tr>
 								<th>Items</th>
-								<td><?php=$stream['items']?></td>
+								<td><?=$stream['items']?></td>
 							</tr>
 							<tr>
 								<th>Publishers</th>
-								<td><?php=$stream['publishers']?></td>
+								<td><?=$stream['publishers']?></td>
 							</tr>
 <?php
 				}
@@ -109,7 +109,7 @@
 ?>
 				
 				<div class="col-sm-8">
-					<h3>Stream: <?php echo html($viewstream['name'])?> &ndash; <?php=count($items)?> of <?php=$countitems?> <?php=($countitems==1) ? 'item' : 'items'?><?php echo html($suffix)?></h3>
+					<h3>Stream: <?php echo html($viewstream['name'])?> &ndash; <?=count($items)?> of <?=$countitems?> <?=($countitems==1) ? 'item' : 'items'?><?php echo html($suffix)?></h3>
 <?php
 			$oneoutput=false;
 			$items=array_reverse($items); // show most recent first
@@ -125,7 +125,7 @@
 				foreach ($item['publishers'] as $publisher) {
 					$link='./?chain='.$_GET['chain'].'&page='.$_GET['page'].'&stream='.$viewstream['createtxid'].'&publisher='.$publisher;
 					
-							?><?php=format_address_html($publisher, false, $labels, $link)?><?php
+							?><?=format_address_html($publisher, false, $labels, $link)?><?php
 							
 				}
 							
@@ -165,7 +165,7 @@
 						</tr>
 						<tr>
 							<th>Added</td>
-							<td><?php=gmdate('Y-m-d H:i:s', isset($item['blocktime']) ? $item['blocktime'] : $item['time'])?> GMT<?php=isset($item['blocktime']) ? ' (confirmed)' : ''?></td>
+							<td><?=gmdate('Y-m-d H:i:s', isset($item['blocktime']) ? $item['blocktime'] : $item['time'])?> GMT<?=isset($item['blocktime']) ? ' (confirmed)' : ''?></td>
 						</tr>
 					</table>
 <?php

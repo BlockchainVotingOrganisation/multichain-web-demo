@@ -55,7 +55,7 @@
 <?php
 	foreach ($sendaddresses as $address) {
 ?>
-								<option value="<?php echo html($address)?>"><?php=format_address_html($address, true, $labels)?></option>
+								<option value="<?php echo html($address)?>"><?=format_address_html($address, true, $labels)?></option>
 <?php
 	}
 ?>						
@@ -84,7 +84,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="upload" class="col-sm-2 control-label">Upload file:<br/><span style="font-size:75%; font-weight:normal;">Max <?php=floor($max_upload_size/1024)?> KB</span></label>
+							<label for="upload" class="col-sm-2 control-label">Upload file:<br/><span style="font-size:75%; font-weight:normal;">Max <?=floor($max_upload_size/1024)?> KB</span></label>
 							<div class="col-sm-9">
 								<input class="form-control" type="file" name="upload" id="upload">
 							</div>

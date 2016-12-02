@@ -80,7 +80,7 @@
 				
 			$label=@$labels[$address];
 ?>
-						<table class="table table-bordered table-condensed table-break-words <?php=($address==@$_POST['to']) ? 'bg-success' : 'table-striped'?>">
+						<table class="table table-bordered table-condensed table-break-words <?=($address==@$_POST['to']) ? 'bg-success' : 'table-striped'?>">
 <?php
 			if (isset($label)) {
 ?>
@@ -93,7 +93,7 @@
 ?>
 							<tr>
 								<th style="width:25%;">Address</th>
-								<td class="td-break-words small"><?php echo html($address)?><?php=@$keymyaddresses[$address] ? ' (local)' : ''?></td>
+								<td class="td-break-words small"><?php echo html($address)?><?=@$keymyaddresses[$address] ? ' (local)' : ''?></td>
 							</tr>
 							<tr>
 								<th>Permissions</th>
@@ -117,7 +117,7 @@
 <?php
 	foreach ($adminaddresses as $address) {
 ?>
-								<option value="<?php echo html($address)?>"><?php=format_address_html($address, true, $labels)?></option>
+								<option value="<?php echo html($address)?>"><?=format_address_html($address, true, $labels)?></option>
 <?php
 	}
 ?>						

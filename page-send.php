@@ -63,7 +63,7 @@
 					$label=@$labels[$address];
 
 ?>
-						<table class="table table-bordered table-condensed table-break-words <?php=($address==@$getnewaddress) ? 'bg-success' : 'table-striped'?>">
+						<table class="table table-bordered table-condensed table-break-words <?=($address==@$getnewaddress) ? 'bg-success' : 'table-striped'?>">
 <?php
 			if (isset($label)) {
 ?>
@@ -90,7 +90,7 @@
 ?>
 							<tr>
 								<th><?php echo html($balance['name'])?></th>
-								<td><?php echo html($unlockedqty)?><?php=($lockedqty>0) ? (' ('.$lockedqty.' locked)') : ''?></td>
+								<td><?php echo html($unlockedqty)?><?=($lockedqty>0) ? (' ('.$lockedqty.' locked)') : ''?></td>
 							</tr>
 <?php
 					}
@@ -123,7 +123,7 @@
 <?php
 	foreach ($usableaddresses as $address) {
 ?>
-								<option value="<?php echo html($address)?>"><?php=format_address_html($address, true, $labels)?></option>
+								<option value="<?php echo html($address)?>"><?=format_address_html($address, true, $labels)?></option>
 <?php
 	}
 ?>						
@@ -153,7 +153,7 @@
 		if ($address==$getinfo['burnaddress'])
 			continue;
 ?>
-								<option value="<?php echo html($address)?>"><?php=format_address_html($address, @$keymyaddresses[$address], $labels)?></option>
+								<option value="<?php echo html($address)?>"><?=format_address_html($address, @$keymyaddresses[$address], $labels)?></option>
 <?php
 	}
 ?>						

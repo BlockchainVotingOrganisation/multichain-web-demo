@@ -32,14 +32,14 @@
 <?php
 	foreach ($liststreams as $stream) {
 ?>
-						<table class="table table-bordered table-condensed table-break-words <?php=($success && ($stream['name']==@$_POST['name'])) ? 'bg-success' : 'table-striped'?>">
+						<table class="table table-bordered table-condensed table-break-words <?=($success && ($stream['name']==@$_POST['name'])) ? 'bg-success' : 'table-striped'?>">
 							<tr>
 								<th style="width:30%;">Name</th>
 								<td><?php echo html($stream['name'])?></td>
 							</tr>
 							<tr>
 								<th>Opened by</td>
-								<td class="td-break-words small"><?php=format_address_html($stream['creators'][0], false, $labels)?></td>
+								<td class="td-break-words small"><?=format_address_html($stream['creators'][0], false, $labels)?></td>
 							</tr>
 							<tr>
 								<th>Items</th>
@@ -72,7 +72,7 @@
 <?php
 	foreach ($createaddresses as $address) {
 ?>
-								<option value="<?php echo html($address)?>"><?php=format_address_html($address, true, $labels)?></option>
+								<option value="<?php echo html($address)?>"><?=format_address_html($address, true, $labels)?></option>
 <?php
 	}
 ?>						

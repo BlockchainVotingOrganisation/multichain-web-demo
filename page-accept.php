@@ -82,7 +82,7 @@
 					
 					$label=@$labels[$address];
 ?>
-						<table class="table table-bordered table-condensed table-break-words <?php=($address==@$getnewaddress) ? 'bg-success' : 'table-striped'?>">
+						<table class="table table-bordered table-condensed table-break-words <?=($address==@$getnewaddress) ? 'bg-success' : 'table-striped'?>">
 <?php
 			if (isset($label)) {
 ?>
@@ -109,7 +109,7 @@
 ?>
 							<tr>
 								<th><?php echo html($balance['name'])?></th>
-								<td><?php echo html($unlockedqty)?><?php=($lockedqty>0) ? (' ('.$lockedqty.' locked)') : ''?></td>
+								<td><?php echo html($unlockedqty)?><?=($lockedqty>0) ? (' ('.$lockedqty.' locked)') : ''?></td>
 							</tr>
 <?php
 					}
@@ -144,7 +144,7 @@
 		foreach ($decoded['offer']['assets'] as $index => $offer) {
 ?>
 						<div class="form-group">
-							<label class="col-sm-3 control-label"><?php=$index ? '' : 'Offer'?>:</label>
+							<label class="col-sm-3 control-label"><?=$index ? '' : 'Offer'?>:</label>
 							<div class="col-sm-9">
 								<p class="form-control-static"><?php echo html($offer['name'])?> &ndash; <?php echo html($offer['qty'])?></p>
 							</div>
@@ -155,7 +155,7 @@
 		foreach ($decoded['ask']['assets'] as $index => $ask) {
 ?>
 						<div class="form-group">
-							<label class="col-sm-3 control-label"><?php=$index ? '' : 'Ask'?>:</label>
+							<label class="col-sm-3 control-label"><?=$index ? '' : 'Ask'?>:</label>
 							<div class="col-sm-9">
 								<p class="form-control-static"><?php echo html($ask['name'])?> &ndash; <?php echo html($ask['qty'])?></p>
 							</div>
@@ -171,7 +171,7 @@
 <?php
 	foreach ($usableaddresses as $address) {
 ?>
-								<option value="<?php echo html($address)?>"><?php=format_address_html($address, true, $labels)?></option>
+								<option value="<?php echo html($address)?>"><?=format_address_html($address, true, $labels)?></option>
 <?php
 	}
 ?>						

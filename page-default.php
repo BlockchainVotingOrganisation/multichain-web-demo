@@ -104,7 +104,7 @@
 			if ($ismine && !$cansetlabel)
 				$permissions.=' (cannot set label)';
 ?>
-						<table class="table table-bordered table-condensed table-break-words <?php=($address==@$getnewaddress) ? 'bg-success' : 'table-striped'?>">
+						<table class="table table-bordered table-condensed table-break-words <?=($address==@$getnewaddress) ? 'bg-success' : 'table-striped'?>">
 <?php
 			if (isset($label) || $cansetlabel) {
 ?>
@@ -125,7 +125,7 @@
 ?>
 							<tr>
 								<th style="width:30%;">Address</th>
-								<td class="td-break-words small"><?php echo html($address)?><?php=$ismine ? '' : ' (watch-only)'?></td>
+								<td class="td-break-words small"><?php echo html($address)?><?=$ismine ? '' : ' (watch-only)'?></td>
 							</tr>
 							<tr>
 								<th>Permissions</th>
@@ -151,7 +151,7 @@
 		}
 	}
 ?>
-					<form class="form-horizontal" method="post" action="<?php=chain_page_url_html($chain)?>">
+					<form class="form-horizontal" method="post" action="<?=chain_page_url_html($chain)?>">
 						<div class="form-group">
 							<div class="col-xs-12">
 								<input class="btn btn-default" name="getnewaddress" type="submit" value="Get new address">

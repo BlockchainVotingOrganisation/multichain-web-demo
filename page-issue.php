@@ -91,10 +91,10 @@
 			$name=$asset['name'];
 			$issuer=$asset['issues'][0]['issuers'][0];
 ?>
-						<table class="table table-bordered table-condensed table-break-words <?php=($success && ($name==@$_POST['name'])) ? 'bg-success' : 'table-striped'?>">
+						<table class="table table-bordered table-condensed table-break-words <?=($success && ($name==@$_POST['name'])) ? 'bg-success' : 'table-striped'?>">
 							<tr>
 								<th style="width:30%;">Name</th>
-								<td><?php echo html($name)?> <?php=$asset['open'] ? '' : '(closed)'?></td>
+								<td><?php echo html($name)?> <?=$asset['open'] ? '' : '(closed)'?></td>
 							</tr>
 							<tr>
 								<th>Quantity</td>
@@ -106,7 +106,7 @@
 							</tr>
 							<tr>
 								<th>Issuer</td>
-								<td class="td-break-words small"><?php=format_address_html($issuer, @$keymyaddresses[$issuer], $labels)?></td>
+								<td class="td-break-words small"><?=format_address_html($issuer, @$keymyaddresses[$issuer], $labels)?></td>
 							</tr>
 <?php
 			$details=array();
@@ -188,7 +188,7 @@
 <?php
 	foreach ($issueaddresses as $address) {
 ?>
-								<option value="<?php echo html($address)?>"><?php=format_address_html($address, true, $labels)?></option>
+								<option value="<?php echo html($address)?>"><?=format_address_html($address, true, $labels)?></option>
 <?php
 	}
 ?>						
@@ -223,7 +223,7 @@
 		if ($address==$getinfo['burnaddress'])
 			continue;
 ?>
-								<option value="<?php echo html($address)?>"><?php=format_address_html($address, @$keymyaddresses[$address], $labels)?></option>
+								<option value="<?php echo html($address)?>"><?=format_address_html($address, @$keymyaddresses[$address], $labels)?></option>
 <?php
 	}
 ?>						
@@ -231,7 +231,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="upload" class="col-sm-2 control-label">Upload file:<br/><span style="font-size:75%; font-weight:normal;">Max <?php=floor($max_upload_size/1024)?> KB</span></label>
+							<label for="upload" class="col-sm-2 control-label">Upload file:<br/><span style="font-size:75%; font-weight:normal;">Max <?=floor($max_upload_size/1024)?> KB</span></label>
 							<div class="col-sm-9">
 								<input class="form-control" type="file" name="upload" id="upload">
 							</div>
@@ -240,12 +240,12 @@
 	for ($index=0; $index<const_issue_custom_fields; $index++) {
 ?>
 						<div class="form-group">
-							<label for="key<?php=$index?>" class="col-sm-2 control-label"><?php=$index ? '' : 'Custom fields:'?></label>
+							<label for="key<?=$index?>" class="col-sm-2 control-label"><?=$index ? '' : 'Custom fields:'?></label>
 							<div class="col-sm-3">
-								<input class="form-control input-sm" name="key<?php=$index?>" id="key<?php=$index?>" placeholder="key">
+								<input class="form-control input-sm" name="key<?=$index?>" id="key<?=$index?>" placeholder="key">
 							</div>
 							<div class="col-sm-6">
-								<input class="form-control input-sm" name="value<?php=$index?>" id="value<?php=$index?>" placeholder="value">
+								<input class="form-control input-sm" name="value<?=$index?>" id="value<?=$index?>" placeholder="value">
 							</div>
 						</div>
 <?php
