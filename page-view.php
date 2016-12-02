@@ -120,7 +120,7 @@
 					<table class="table table-bordered table-condensed table-striped table-break-words">
 						<tr>
 							<th style="width:15%;">Publishers</th>
-							<td><?
+							<td><?php
 							
 				foreach ($item['publishers'] as $publisher) {
 					$link='./?chain='.$_GET['chain'].'&page='.$_GET['page'].'&stream='.$viewstream['createtxid'].'&publisher='.$publisher;
