@@ -1,4 +1,4 @@
-<?
+<?php
 	if (@$_POST['setlabel']) {
 		$address=$_POST['address'];
 		
