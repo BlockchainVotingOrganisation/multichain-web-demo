@@ -17,7 +17,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>MultiChain Demo</title>
+		<title>BVS-Admin</title>
 		<!--
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
@@ -29,7 +29,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1><a href="./">MultiChain Demo</a><?php if (strlen($name)) { ?> &ndash; <?php echo html($name)?><?php } ?></h1>
+			<h1><a href="./">BVS Admin</a> </h1>
 <?php
 	if (strlen($chain)) {
 		$name=$config[$chain]['name'];
@@ -51,6 +51,7 @@
 					</ul>
 				</div>
 			</nav>
+			<div>Chain<?php if (strlen($name)) { ?>&#58; <?php echo html($name)?><?php } ?></div>
 
 <?php
 		set_multichain_chain($config[$chain]);

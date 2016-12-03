@@ -97,15 +97,15 @@
 								<td><?php echo html($name)?> <?=$asset['open'] ? '' : '(closed)'?></td>
 							</tr>
 							<tr>
-								<th>Quantity</td>
+								<th>Quantity</th>
 								<td><?php echo html($asset['issueqty'])?></td>
 							</tr>
 							<tr>
-								<th>Units</td>
+								<th>Units</th>
 								<td><?php echo html($asset['units'])?></td>
 							</tr>
 							<tr>
-								<th>Issuer</td>
+								<th>Issuer</th>
 								<td class="td-break-words small"><?=format_address_html($issuer, @$keymyaddresses[$issuer], $labels)?></td>
 							</tr>
 <?php

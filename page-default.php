@@ -110,7 +110,7 @@
 ?>
 							<tr>
 								<th style="width:30%;">Label</th>
-								<td><?php echo html(@$label)?><?
+								<td><?php echo html(@$label)?><?php
 								
 				if ($cansetlabel)
 					echo (isset($label) ? ' &ndash; ' : '').
@@ -129,7 +129,7 @@
 							</tr>
 							<tr>
 								<th>Permissions</th>
-								<td><?php echo html($permissions)?><?
+								<td><?php echo html($permissions)?><?php
 
 					echo ' &ndash; <a href="'.chain_page_url_html($chain, 'permissions', array('address' => $address)).'">change</a>';
 
